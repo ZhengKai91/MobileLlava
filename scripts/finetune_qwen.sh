@@ -1,0 +1,26 @@
+torchrun --nnodes=1 --node_rank=0  --master_addr=127.0.0.1 --nproc_per_node=2 --master_port=34229 \
+mobilellava/train/train.py \
+  --deepspeed ./scripts/zero_stage3_config.json \
+  --output_dir outputs/finetune\
+  --model_name_or_path outputs/pretrained \
+  --data_json /root/work/filestorage/zhengkai/MobileLlava/data/sft_data.json \
+  --template_name qwen2_base\
+  --attn_implementation sdpa \
+  --dataloader_num_workers 8 \
+  --freeze_vision True\
+  --learning_rate 2e-5 \
+  --lr_scheduler_type "cosine" \
+  --weight_decay 0.00 \
+  --warmup_ratio 0.03 \
+  --num_train_epochs 1 \
+  --per_device_train_batch_size 8 \
+  --gradient_accumulation_steps 4 \
+  --gradient_checkpointing True \
+  --evaluation_strategy "no" \
+  --save_strategy "steps" \
+  --save_steps 200 \
+  --save_total_limit 1 \
+  --bf16 True \
+  --max_seq_length 2048 \
+  --logging_steps 1 \
+  --do_train True \

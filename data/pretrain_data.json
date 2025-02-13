@@ -1,0 +1,7 @@
+{
+"llava1.5":
+	{
+		"image_root":"/Users/kaizheng/Work/projects/MobileLlava/data/test_images",
+		"annotation":"/Users/kaizheng/Work/projects/MobileLlava/data/blip_laion_cc_sbu_558k_top100.json"
+	}
+}

@@ -1,0 +1,26 @@
+torchrun --nnodes=1 --node_rank=0  --master_addr=127.0.0.1 --nproc_per_node=4 --master_port=34229 \
+mobilellava/train/train.py \
+  --deepspeed ./scripts/zero_stage1_config.json \
+  --output_dir outputs/pretrained4\
+  --vision_name_or_path /root/work/filestorage/TinyAI/TinyCLIP-ViT-61M-32-Text-29M-LAION400M/ \
+  --llm_name_or_path /root/work/filestorage/TinyAI/Qwen2-0.5B \
+  --data_json /root/work/filestorage/zhengkai/MobileLlava/data/pretrain_data.json \
+  --template_name 'pretrain'\
+  --attn_implementation eager \
+  --dataloader_num_workers 8 \
+  --freeze_vision True \
+  --freeze_llm True \
+  --learning_rate 1e-3 \
+  --lr_scheduler_type "cosine" \
+  --weight_decay 0.01 \
+  --warmup_ratio 0.03 \
+  --num_train_epochs 1 \
+  --per_device_train_batch_size 32 \
+  --gradient_accumulation_steps 4 \
+  --evaluation_strategy "no" \
+  --save_strategy "steps" \
+  --save_steps 200 \
+  --save_total_limit 1 \
+  --bf16 True \
+  --max_seq_length 2048 \
+  --logging_steps 1 \
