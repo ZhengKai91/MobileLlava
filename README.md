@@ -1,9 +1,6 @@
 # What is this?
 
-MobileLlava is a simple and easy-to-learn framework for training large multimodal models. It allows you to start training multimodal models from scratch directly on a Mac. It features:
-Super Lightweight: You can start training with just one Mac.
-Easy to Expand: With only a few lines of configuration changes, you can train various multimodal models combining different encoders and LLMs.
-Reliable Training Results: It is not just a toy demo but delivers reliable performance.
+MobileLlava is a simple and easy-to-learn framework for training large multimodal models. It allows you to start training multimodal models from scratch directly on a Mac. 
 
 1. **Super Light**: You can even start training with just one Mac.
 2. **Easy to Expand**: With only a few lines of configuration changes, you can train various multimodal models combining different vision encoders and LLMs.
